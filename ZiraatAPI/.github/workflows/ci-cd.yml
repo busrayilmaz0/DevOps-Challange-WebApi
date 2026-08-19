@@ -1,0 +1,6 @@
+﻿namespace ZiraatAPI.github.workflows
+{
+    public class ci_cd
+    {
+    }
+}
