@@ -20,7 +20,7 @@ jobs:
       - name: Docker İmajını Derle ve Yükle
         uses: docker/build-push-action@v5
         with:
-          context: .
-          file: ./Dockerfile
+          context: ./ZiraatAPI
+          file: ./ZiraatAPI/dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/ziraat-api:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/ziraat-api:latests
