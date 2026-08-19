@@ -1,0 +1,32 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ziraat-api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ziraat-api
+  template:
+    metadata:
+      labels:
+        app: ziraat-api
+    spec:
+      containers:
+      - name: ziraat-api
+        image: busra02/ziraat-api:latest
+        ports:
+        - containerPort: 11130
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ziraat-api-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: ziraat-api
+  ports:
+  - protocol: TCP
+    port: 11130
+    targetPort: 11130
