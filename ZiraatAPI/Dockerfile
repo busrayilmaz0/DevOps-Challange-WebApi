@@ -7,7 +7,5 @@ RUN dotnet publish -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
-# Port sabitliğini kaldırıyoruz, Render'ın atayacağı dinamik porta bırakıyoruz
-ENV ASPNETCORE_URLS=http://+:$PORT
 COPY --from=build /app/publish .
 ENTRYPOINT ["dotnet", "ZiraatAPI.dll"]
