@@ -1,3 +1,5 @@
+Environment.SetEnvironmentVariable("DOTNET_USE_POLLING_FILE_WATCHER", "1");
+
 using Microsoft.EntityFrameworkCore;
 using ZiraatApi.Models;
 
