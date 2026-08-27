@@ -1,13 +1,7 @@
-Environment.SetEnvironmentVariable("DOTNET_USE_POLLING_FILE_WATCHER", "1");
-
 using Microsoft.EntityFrameworkCore;
 using ZiraatApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Render dinamik port yönetimi
-var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-builder.WebHost.UseUrls($"http://+:{port}");
 
 builder.Services.AddCors(options =>
 {
