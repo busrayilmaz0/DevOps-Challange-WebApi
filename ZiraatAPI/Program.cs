@@ -3,9 +3,14 @@ using ZiraatApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Render gibi platformların dinamik port atamalarını yakalaması için
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+builder.WebHost.UseUrls($"http://*:{port}");
+
+// CORS Ayarları (Politikaya 'AllowAll' ismi vererek netleştiriyoruz)
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolicy(policy =>
+    options.AddPolicy("AllowAll", policy =>
     {
         policy.AllowAnyOrigin()
               .AllowAnyMethod()
@@ -29,7 +34,8 @@ app.UseSwaggerUI(c =>
     c.RoutePrefix = "swagger";
 });
 
-app.UseCors();
+// Tanımladığımız 'AllowAll' politikasını burada çağırıyoruz
+app.UseCors("AllowAll");
 
 app.MapGet("/", async context =>
 {
@@ -38,4 +44,5 @@ app.MapGet("/", async context =>
 });
 
 app.MapControllers();
+
 app.Run();
