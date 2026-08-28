@@ -6,19 +6,17 @@ namespace ZiraatApi.Models
     {
         public int Id { get; set; }
 
-        [JsonPropertyName("fullName")]
+        [JsonPropertyName("regName")]
         public string FullName { get; set; } = string.Empty;
 
-        [JsonPropertyName("tc")]
-        public string TCNo { get; set; } = string.Empty;
+        [JsonPropertyName("regTc")]
+        public string TcNo { get; set; } = string.Empty;
 
-        [JsonPropertyName("password")]
+        [JsonPropertyName("regPassword")]
         public string Password { get; set; } = string.Empty;
 
-        [JsonPropertyName("iban")]
         public string IBAN { get; set; } = string.Empty;
 
-        [JsonPropertyName("balance")]
-        public decimal Balance { get; set; } 
+        public decimal Balance { get; set; }
     }
 }
