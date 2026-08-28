@@ -61,5 +61,5 @@ namespace ZiraatApi.Controllers
 
             return Ok(transactions);
         }
-    }
+    } 
 }
