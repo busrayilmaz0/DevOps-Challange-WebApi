@@ -19,6 +19,6 @@ namespace ZiraatApi.Models
         public string IBAN { get; set; } = string.Empty;
 
         [JsonPropertyName("balance")]
-        public decimal Balance { get; set; }
+        public decimal Balance { get; set; } 
     }
 }
